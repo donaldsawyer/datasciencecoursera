@@ -20,7 +20,7 @@ best <- function(state, outcome) {
     data.state = data[data$State==state, c(2,ratecols[outcome])]
     names(data.state) <- c("hospital", "mortality")
     #data.state
-    sort(data.state[as.numeric(data.state$mortality) == min(as.numeric(data.state$mortality), na.rm=TRUE),"hospital"])
-    #min(data.state$mortality, na.rm=TRUE)
+    result <- sort(data.state[as.numeric(data.state$mortality) == min(as.numeric(data.state$mortality), na.rm=TRUE),"hospital"])
+    if(length(result) > 1) result[1] else result
 }
 
