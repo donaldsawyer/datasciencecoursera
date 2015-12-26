@@ -7,8 +7,6 @@ library(dplyr)
 test.dir <- paste0(".", .Platform$file.sep, "uci_har_dataset", .Platform$file.sep, "test", .Platform$file.sep)
 train.dir <- paste0(".", .Platform$file.sep, "uci_har_dataset", .Platform$file.sep, "train", .Platform$file.sep)
 
-
-
 # You should create one R script called run_analysis.R that does the following. 
 # 1. Merges the training and the test sets to create one data set.
 
@@ -55,3 +53,10 @@ all.data <- cbind(subject.data, activity.data, measurement.data)
 averaged.data <- all.data %>% group_by(subject, activity.id, activity.name) %>% summarise_each(funs(mean), -(1:3))
 names(averaged.data)[-(1:3)] <- sapply(names(averaged.data)[-(1:3)], FUN=function(x) { paste0("Mean of ",x)})
 
+str(all.data)
+head(all.data)
+str(averaged.data)
+head(averaged.data)
+
+write.table(all.data, "all_data.txt", row.names = FALSE)
+write.table(averaged.data, "averaged_data.txt", row.names = FALSE)
