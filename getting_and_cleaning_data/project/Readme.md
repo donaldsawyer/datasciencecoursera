@@ -35,12 +35,14 @@ The format of the required files and directories should appear as below:
 From a command line: `Rscript run_analysis.R`.
 
 From RStudio:
+
 1. Open the run_analysis.R file
 2. Set the working directory to the "Root Project Directory" name.
 3. Run the script
 
 # Outputs #
 Two analyses are performed:
+
 1. Generate a full tidy dataset (*all.data*)
 2. Generate a tidy dataset of the means for all measurements grouped by subject/activity (*averaged.data*)
 
